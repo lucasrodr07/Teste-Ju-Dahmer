@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ju Dahmer Ateliê | Coleção Dia das Mães</title>
+    <!-- Importação de Fontes Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 
+           JU DAHMER ATELIÊ - ESTILO INSTITUCIONAL
+           Paleta: Verde (#89966a), Off-white (#FAF9F6), Dourado (#D4AF37)
+        */
+        
+        :root {
+            --verde-institucional: #879670;
+            --fundo-site: #FAF9F6;
+            --texto-principal: #2C3E2D; /* Verde escuro profundo */
+            --texto-secundario: #7A7A7A;
+            --detalhe-dourado: #D4AF37;
+            --transicao-suave: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--fundo-site);
+            color: var(--texto-principal);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animação Inicial e Scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transicao-suave);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- CABEÇALHO (HEADER) --- */
+        header {
+            background-color: var(--verde-institucional);
+            padding: 50px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-container img {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .divisor-header {
+            width: 80px;
+            height: 1px;
+            background-color: var(--detalhe-dourado);
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 12px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* --- CONTEÚDO PRINCIPAL --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 24px;
+        }
+
+        .product-grid {
+            display: grid;
+            gap: 48px;
+            grid-template-columns: 1fr; /* Mobile Default */
+        }
+
+        @media (min-width: 768px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* --- CARD DO PRODUTO --- */
+        .card {
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: var(--transicao-suave);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .image-box {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            background-color: #f8f8f8;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transicao-suave);
+        }
+
+        .card:hover .image-box img {
+            transform: scale(1.05);
+        }
+
+        .info-box {
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--texto-principal);
+            font-weight: 400;
+        }
+
+        .divisor-card {
+            width: 40px;
+            height: 1px;
+            background-color: var(--detalhe-dourado);
+            margin: 12px 0;
+            opacity: 0.6;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--texto-secundario);
+            margin-bottom: 25px;
+        }
+
+        /* BOTÃO WHATSAPP */
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            color: var(--verde-institucional);
+            border: 1.5px solid var(--verde-institucional);
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            transition: var(--transicao-suave);
+            width: 100%;
+            font-weight: 500;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--verde-institucional);
+            color: white;
+        }
+
+        /* BOTÃO FLUTUANTE */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: white;
+            color: var(--verde-institucional);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-decoration: none;
+            z-index: 9999;
+            transition: var(--transicao-suave);
+            border: 1px solid var(--verde-institucional);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: white;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .footer-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--texto-principal);
+        }
+
+        .footer-sub {
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--detalhe-dourado);
+            font-weight: 400;
+        }
+
+        .heart-icon {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: var(--verde-institucional);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho Institucional -->
+    <header class="fade-in">
+        <div class="logo-container">
+            <img src="logo.png" alt="Ju Dahmer Ateliê">
+        </div>
+        <div class="divisor-header"></div>
+        <h1>Coleção Especial: Dia das Mães</h1>
+        <h2>Amor que inspira. Presente que eterniza.</h2>
+    </header>
+
+    <!-- Catálogo de Produtos -->
+    <main class="main-container">
+        <div class="product-grid" id="productGrid">
+            <!-- Renderizado dinamicamente pelo Script -->
+        </div>
+    </main>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-float">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
+    </a>
+
+    <!-- Rodapé -->
+    <footer class="fade-in">
+        <p class="footer-text">Feito para quem sempre cuidou de você.</p>
+        <p class="footer-sub">Feliz Dia das Mães!</p>
+        <div class="heart-icon">♥</div>
+    </footer>
+
+    <script>
+        /**
+         * JU DAHMER ATELIÊ - DASHBOARD DE PRODUTOS
+         * Configuração: Edite o número de WhatsApp e a lista de produtos abaixo.
+         */
+
+        const CONFIG = {
+            whatsapp: "5511999999999", // SEU NÚMERO AQUI (DDI + DDD + NÚMERO)
+            textoPadrao: "Olá! Tenho interesse no "
+        };
+
+        const produtos = [
+            { id: 1, nome: "Colar Elo de Amor", preco: "R$ 320,00", imagem: "imagem 1.jfif" },
+            { id: 2, nome: "Colar Coração Eterno", preco: "R$ 285,00", imagem: "imagem 2.jfif" },
+            { id: 3, nome: "Colar Pérola Mather", preco: "R$ 410,00", imagem: "imagem 3.jfif" },
+            { id: 4, nome: "Gargantilha Infinito", preco: "R$ 290,00", imagem: "imagem 4.jfif" },
+            { id: 5, nome: "Colar Ponto de Luz", preco: "R$ 195,00", imagem: "imagem 5.jfif" },
+            { id: 6, nome: "Colar Medalha Abençoada", preco: "R$ 345,00", imagem: "imagem 6.jfif" },
+            { id: 7, nome: "Choker Dourada Slim", preco: "R$ 178,00", imagem: "imagem 7.jfif" },
+            { id: 8, nome: "Colar Árvore da Vida", preco: "R$ 380,00", imagem: "imagem 8.jfif" },
+            { id: 9, nome: "Colar Iniciais Ouro", preco: "R$ 450,00", imagem: "imagem 9.jfif" },
+            { id: 10, nome: "Colar Gota de Cristal", preco: "R$ 225,00", imagem: "imagem 10.jfif" },
+            { id: 11, nome: "Colar Relicário Classic", preco: "R$ 510,00", imagem: "imagem 11.jfif" },
+            { id: 12, nome: "Colar Riviera Shine", preco: "R$ 890,00", imagem: "imagem 12.jfif" },
+            { id: 13, nome: "Colar Trevo da Sorte", preco: "R$ 275,00", imagem: "imagem 13.jfif" },
+            { id: 14, nome: "Colar Terço Delicado", preco: "R$ 210,00", imagem: "imagem 14.jfif" },
+            { id: 15, nome: "Colar Elos Geométricos", preco: "R$ 335,00", imagem: "imagem 15.jfif" },
+            { id: 16, nome: "Colar Veneziana Fina", preco: "R$ 145,00", imagem: "imagem 16.jfif" },
+            { id: 17, nome: "Colar Mandala Família", preco: "R$ 420,00", imagem: "imagem 17.jfif" },
+            { id: 18, nome: "Colar Nome Minimalista", preco: "R$ 395,00", imagem: "imagem 18.jfif" },
+            { id: 19, nome: "Colar Quartz Rosa", preco: "R$ 298,00", imagem: "imagem 19.jfif" },
+            { id: 20, nome: "Colar Signos Estelar", preco: "R$ 265,00", imagem: "imagem 20.jfif" },
+            { id: 21, nome: "Colar Corrente Baiana", preco: "R$ 195,00", imagem: "imagem 21.jfif" },
+            { id: 22, nome: "Colar Coração Vazado", preco: "R$ 240,00", imagem: "imagem 22.jfif" },
+            { id: 23, nome: "Colar Dupla Face", preco: "R$ 325,00", imagem: "imagem 23.jfif" },
+            { id: 24, nome: "Colar Esfera Polida", preco: "R$ 289,00", imagem: "imagem 24.jfif" },
+            { id: 25, nome: "Colar Gravatinha Lux", preco: "R$ 375,00", imagem: "imagem 25.jfif" },
+            { id: 26, nome: "Colar Pérola Única", preco: "R$ 215,00", imagem: "imagem 26.jfif" }
+        ];
+
+        function renderCatalogo() {
+            const grid = document.getElementById('productGrid');
+            
+            produtos.forEach(product => {
+                const message = encodeURIComponent(`${CONFIG.textoPadrao}[${product.nome}] da Coleção Dia das Mães.`);
+                const link = `https://wa.me/${CONFIG.whatsapp}?text=${message}`;
+                
+                const card = document.createElement('div');
+                card.className = 'card fade-in';
+                card.innerHTML = `
+                    <div class="image-box">
+                        <img src="${product.imagem}" alt="${product.nome}" loading="lazy">
+                    </div>
+                    <div class="info-box">
+                        <h3 class="product-name">${product.nome}</h3>
+                        <div class="divisor-card"></div>
+                        <p class="product-price">${product.preco}</p>
+                        <a href="${link}" target="_blank" class="btn-whatsapp">Comprar via WhatsApp</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Animação ao rolar a página
+        function scrollObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }
+
+        window.onload = () => {
+            renderCatalogo();
+            scrollObserver();
+            // Ativa animações do Header/Footer após carregar
+            setTimeout(() => {
+                document.querySelector('header').classList.add('visible');
+                document.querySelector('footer').classList.add('visible');
+            }, 100);
+        };
+    </script>
+</body>
+</html>
